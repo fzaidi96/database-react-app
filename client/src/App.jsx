@@ -1,6 +1,8 @@
 import { useState, useEffect} from "react";
+//import Feed from "./pages/Feed.jsx";
+//import NewPost from "./pages/NewPost.jsx";
 
-//it took me 3 million years to split these into components and I still couldn't get it to work so pls allow everything on one page. in my defence, the background colour is tomato...
+//it took me 3 million years to split these into components and I still couldn't get it to work so pls allow everything on the App page. You can see my 'working out' in the component pages tho but they are all //'d out. in my defence, the background colour is tomato so that should be worth something amirite?
 
 export default function App() {
     const [posts, setPosts] = useState([]);
@@ -13,7 +15,7 @@ export default function App() {
     const [selectedTopic, setSelectedTopic] = useState("");
     
     const fetchData = async () => {
-        const response = await fetch("http://localhost:8080/");
+        const response = await fetch("https://database-react-app-server.onrender.com/");
         const data = await response.json();
         setPosts(data);
       };
@@ -21,7 +23,7 @@ export default function App() {
     const handleSubmit = async (event) => {
     event.preventDefault();
     
-       await fetch("http://localhost:8080/", {
+       await fetch("https://database-react-app-server.onrender.com/", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
@@ -43,7 +45,7 @@ export default function App() {
     }, []);
 
     const handleDelete = async (postId) => {
-        await fetch(`http://localhost:8080/${postId}`, {
+        await fetch(`https://database-react-app-server.onrender.com/${postId}`, {
           method: "DELETE",
         });
       
