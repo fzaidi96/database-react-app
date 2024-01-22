@@ -10,7 +10,7 @@ const db = new pg.Pool({ connectionString: dbConnectionString });
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.listen(8080,, function () {
+app.listen(8080, function () {
     console.log("Server listening at 8080");});
 
 app.get("https://database-react-app-server.onrender.com", async (request, response) => {
