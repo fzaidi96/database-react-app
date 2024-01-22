@@ -18,7 +18,7 @@ app.get("/", async (request, response) => {
   response.json(result.rows);
   });
   
-app.post("=/", async (request, response) => {
+app.post("/", async (request, response) => {
   const username = request.body.username;
   const post = request.body.post;
   const topic = request.body.topic;
